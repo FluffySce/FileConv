@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import './App.css';
 
 function App() {
   const [file, setFile] = useState(null);
@@ -43,25 +44,24 @@ function App() {
     }
   };
 
-  return (
-    <div className='min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4'>
-      <h1 className='text-2x1 font-bold mb-6'>Word to pdf converter</h1>
-      <input
-        type='file'
-        accept='.docx'
-        onChange={handleFileChange}
-        className='mb-4'
-      />
-      <button
-        onClick={handleUpload}
-        className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50'
-        disabled={loading}
-      >
-        {loading ? "Converting...": "Convert to PDF"}
-      </button>
-      {success && <p className='text-green-600 mt-4'>Download Started!</p>}
-      {error && <p className='text-red-600 mt-4'>{error}</p>}
-    </div>
-  );
+return (
+  <div className="app-container">
+    <h1 className="title">Word to PDF Converter</h1>
+    <input
+      type="file"
+      accept=".docx"
+      onChange={handleFileChange}
+    />
+    <button
+      onClick={handleUpload}
+      disabled={loading}
+    >
+      {loading ? "Converting..." : "Convert to PDF"}
+    </button>
+    {success && <p className="success-message">Download Started!</p>}
+    {error && <p className="error-message">{error}</p>}
+  </div>
+);
+
 }
 export default App;
