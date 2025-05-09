@@ -9,7 +9,6 @@ A simple file converter that lets you convert `.docx` files to `.pdf` using a Re
 
 ## Stack
 - React + Vite
-- Tailwind CSS
 - Flask (Python)
 
 ## Run locally
